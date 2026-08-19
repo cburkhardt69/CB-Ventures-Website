@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CB Ventures AG</title>
+  <meta name="description" content="CB Ventures AG – Christoph Burkhardt, Founder & Managing Partner.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #f5f5f3;
+      --dark:  #1a1a1a;
+      --mid:   #555555;
+      --light: #ccccca;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ── Left column ── */
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(2.5rem, 6vw, 5rem);
+    }
+
+    .logo img {
+      width: min(320px, 80%);
+      height: auto;
+      display: block;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--light);
+      margin: 2.5rem 0;
+    }
+
+    .identity {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    .name {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+      font-weight: 300;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .contact a {
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .contact a:hover { color: var(--mid); }
+
+    /* ── Right column — photo ── */
+    .right {
+      overflow: hidden;
+      background: #c8c4be;
+    }
+
+    .right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+      display: block;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 680px) {
+      .card { grid-template-columns: 1fr; }
+      .right { order: -1; height: 65vw; }
+      .right img { object-position: center 15%; }
+      .left { padding: 2rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .left > * {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: up 0.5s ease forwards;
+      }
+      .logo     { animation-delay: 0.05s; }
+      .divider  { animation-delay: 0.15s; }
+      .identity { animation-delay: 0.25s; }
+      .contact  { animation-delay: 0.35s; }
+      @keyframes up { to { opacity: 1; transform: none; } }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="left">
+      <div class="logo">
+        <img src="logo.png" alt="CB Ventures AG">
+      </div>
+      <div class="divider"></div>
+      <div class="identity">
+        <h1 class="name">Christoph Burkhardt</h1>
+        <p class="title">Founder &amp; Managing Partner</p>
+      </div>
+      <div class="contact">
+        <a href="tel:+41783494956">+41 78 349 49 56</a>
+        <a href="mailto:christoph@cb-ventures.ch">christoph@cb-ventures.ch</a>
+      </div>
+    </div>
+    <div class="right">
+      <img src="portrait.jpg" alt="Christoph Burkhardt" loading="eager">
+    </div>
+  </main>
+</body>
+</html>
